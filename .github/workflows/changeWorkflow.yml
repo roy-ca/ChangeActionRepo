@@ -6,9 +6,9 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Change Custom Action
-              uses: roy-ca/servicenow-devops-change@1.34.2
+              uses: roy-ca/servicenow-devops-change@main
               with:
-                devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER1 }}
+                devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
                 devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
                 instance-url: ${{ secrets.SN_INSTANCE_URL }}
                 tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
