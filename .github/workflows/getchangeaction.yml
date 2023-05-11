@@ -10,11 +10,9 @@ jobs:
               with:
                 devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
                 devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
-                devops-integration-token: ${{ secrets.SN_DEVOPS_INTEGRATION_TOKEN }}
                 instance-url: ${{ secrets.SN_INSTANCE_URL }}
                 tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
                 context-github: ${{ toJSON(github) }}
-                job-name: 'Get Change'
                 change-details: '{"pipeline_name":"roy-ca/ChangeActionRepo/Change Action","stage_name":"Build","build_number":"4935129118/attempts/1"}'
             - name: Output of GetChangeDetails
               run: echo "The Status of Update Change Request Details => ${{ steps.get.outputs.change-request-number }}"
