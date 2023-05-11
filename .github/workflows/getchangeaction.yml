@@ -9,7 +9,7 @@ jobs:
               uses: roy-ca/getChangeAction@main
               id: get
               with:
-                devops-integration-token: ${{ secrets.SN_DEVOPS_USER }
+                devops-integration-token: ${{ secrets.SN_DEVOPS_USER }}
                 devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
                 devops-integration-user-password: ${{ secrets.SN_DEVOPS_USER }}
                 instance-url: ${{ secrets.SN_INSTANCE_URL }}
