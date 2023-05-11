@@ -15,6 +15,6 @@ jobs:
                 tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
                 context-github: ${{ toJSON(github) }}
                 job-name: 'Get Change'
-                change-details: '{"pipeline_name":"maheshganji/custom-action-get/CustomActionGetWorkflow","stage_name":"ServiceNow Change Approval","build_number":"3732116819/attempts/1"}'
+                change-details: '{"pipeline_name":"roy-ca/ChangeActionRepo/Change Action","stage_name":"Build","build_number":"4935129118/attempts/1"}'
             - name: Output of GetChangeDetails
               run: echo "The Status of Update Change Request Details => ${{ steps.get.outputs.change-request-number }}"
