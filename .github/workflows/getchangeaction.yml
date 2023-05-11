@@ -14,6 +14,6 @@ jobs:
                 instance-url: ${{ secrets.SN_INSTANCE_URL }}
                 tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
                 context-github: ${{ toJSON(github) }}
-                change-details: '{"pipeline_name":"TestProject/TestProject","stage_name":"Create_Change_Request/Change","build_number":"376"}'
+                change-details: '{"pipeline_name":"roy-ca/ChangeActionRepo/Get Change","stage_name":"Build","build_number":"4947331887"}'
             - name: Output of GetChangeDetails
               run: echo "The Status of Update Change Request Details => ${{ steps.get.outputs.change-request-number }}"
