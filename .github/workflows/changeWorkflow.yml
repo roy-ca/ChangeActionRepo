@@ -8,7 +8,6 @@ jobs:
             - name: Change Custom Action
               uses: roy-ca/servicenow-devops-change@main
               with:
-                devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
                 instance-url: ${{ secrets.SN_INSTANCE_URL }}
                 tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
                 context-github: ${{ toJSON(github) }}
