@@ -9,7 +9,6 @@ jobs:
               uses: roy-ca/servicenow-devops-change@main
               with:
                 devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
-                devops-integration-user-password: ${{ secrets.SN_DEVOPS_USER }}
                 instance-url: ${{ secrets.SN_INSTANCE_URL }}
                 tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
                 context-github: ${{ toJSON(github) }}
@@ -18,5 +17,5 @@ jobs:
                 interval: '100'
                 timeout: '3600'
                 changeCreationTimeOut: '3600'
-                abortOnChangeCreationFailure: true
+                abortOnChangeCreationFailure: false
                 abortOnChangeStepTimeout: true
