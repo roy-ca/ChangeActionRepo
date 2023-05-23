@@ -8,7 +8,7 @@ jobs:
             - name: Register Artifact Custom Action
               uses: ServiceNow/servicenow-devops-register-artifact@1.39.0
               with:
-                devops-integration-token: ${{ secrets.SN_DEVOPS_SECRET_TOKEN }}
+                devops-integration-token: ${{ secrets.SN_DEVOPS_INTEGRATION_TOKEN }}
                 instance-url: ${{ secrets.SN_INSTANCE_URL }}
                 tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
                 context-github: ${{ toJSON(github) }}
