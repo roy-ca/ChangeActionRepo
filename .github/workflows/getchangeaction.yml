@@ -5,9 +5,9 @@ jobs:
         name: Build
         runs-on: ubuntu-latest
         steps:
-            - name: Get Change Custom Action
+            - name: Get Change Custom Action With Token
               uses: roy-ca/getChangeAction@main
-              id: get
+              id: getWithToken
               with:
                 devops-integration-token: ${{ secrets.SN_DEVOPS_INTEGRATION_TOKEN }}
                 instance-url: ${{ secrets.SN_INSTANCE_URL }}
@@ -15,4 +15,28 @@ jobs:
                 context-github: ${{ toJSON(github) }}
                 change-details: '{"pipeline_name":"roy-ca/ChangeActionRepo/Change Action","stage_name":"Build","build_number":"5037580150"}'
             - name: Output of GetChangeDetails
-              run: echo "The Status of Update Change Request Details => ${{ steps.get.outputs.change-request-number }}"
+              run: echo "The Status of Update Change Request Details => ${{ steps.getWithToken.outputs.change-request-number }}"
+              
+            - name: Get Change Custom Action With
+              uses: roy-ca/getChangeAction@main
+              id: getWithBasicAuth
+              with:
+                devops-integration-token: ${{ secrets.SN_DEVOPS_INTEGRATION_TOKEN }}
+                instance-url: ${{ secrets.SN_INSTANCE_URL }}
+                tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
+                context-github: ${{ toJSON(github) }}
+                change-details: '{"pipeline_name":"roy-ca/ChangeActionRepo/Change Action","stage_name":"Build","build_number":"5037580150"}'
+            - name: Output of GetChangeDetails
+              run: echo "The Status of Update Change Request Details => ${{ steps.getWithBasicAuth.outputs.change-request-number }}"
+              
+            - name: Get Change Custom Action With Invalid Token
+              uses: roy-ca/getChangeAction@main
+              id: getWithInvalidToken
+              with:
+                devops-integration-token: ${{ secrets.SN_DEVOPS_INTEGRATION_INVALID_TOKEN }}
+                instance-url: ${{ secrets.SN_INSTANCE_URL }}
+                tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
+                context-github: ${{ toJSON(github) }}
+                change-details: '{"pipeline_name":"roy-ca/ChangeActionRepo/Change Action","stage_name":"Build","build_number":"5037580150"}'
+            - name: Output of GetChangeDetails
+              run: echo "The Status of Update Change Request Details => ${{ steps.getWithInvalidToken.outputs.change-request-number }}"
