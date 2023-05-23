@@ -5,7 +5,7 @@ jobs:
         name: Build
         runs-on: ubuntu-latest
         steps:
-            - name: Register Artifact Custom Action
+            - name: Register Artifact Custom Action Valid Token
               uses: ServiceNow/servicenow-devops-register-artifact@scratch_STRY55387369
               with:
                 devops-integration-token: ${{ secrets.SN_DEVOPS_INTEGRATION_TOKEN }}
@@ -13,4 +13,23 @@ jobs:
                 tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
                 context-github: ${{ toJSON(github) }}
                 job-name: 'Register Artifact'
-                artifacts: '[{"name": "com:customactiondemoroyMainBoth","version": "1.${{ github.run_number }}","semanticVersion": "1.${{ github.run_number }}.0","repositoryName": "${{ github.repository }}"}]'
+                artifacts: '[{"name": "com:customactiondemoroyToken1.0","version": "1.${{ github.run_number }}","semanticVersion": "1.${{ github.run_number }}.0","repositoryName": "${{ github.repository }}"}]'
+            - name: Register Artifact Custom Action Basic Auth
+              uses: ServiceNow/servicenow-devops-register-artifact@scratch_STRY55387369
+              with:
+                devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
+                devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
+                instance-url: ${{ secrets.SN_INSTANCE_URL }}
+                tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
+                context-github: ${{ toJSON(github) }}
+                job-name: 'Register Artifact'
+                artifacts: '[{"name": "com:customactiondemoroyBasicAuth1.0","version": "1.${{ github.run_number }}","semanticVersion": "1.${{ github.run_number }}.0","repositoryName": "${{ github.repository }}"}]'
+            - name: Register Artifact Custom Action Invalid Token
+              uses: ServiceNow/servicenow-devops-register-artifact@scratch_STRY55387369
+              with:
+                devops-integration-token: ${{ secrets.SN_DEVOPS_INTEGRATION_INVALID_TOKEN }}
+                instance-url: ${{ secrets.SN_INSTANCE_URL }}
+                tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
+                context-github: ${{ toJSON(github) }}
+                job-name: 'Register Artifact'
+                artifacts: '[{"name": "com:customactiondemoroyInvalidToken1.0","version": "1.${{ github.run_number }}","semanticVersion": "1.${{ github.run_number }}.0","repositoryName": "${{ github.repository }}"}]'
