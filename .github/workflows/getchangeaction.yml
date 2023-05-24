@@ -21,7 +21,8 @@ jobs:
               uses: roy-ca/getChangeAction@main
               id: getWithBasicAuth
               with:
-                devops-integration-token: ${{ secrets.SN_DEVOPS_INTEGRATION_TOKEN }}
+                devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
+                devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
                 instance-url: ${{ secrets.SN_INSTANCE_URL }}
                 tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
                 context-github: ${{ toJSON(github) }}
@@ -29,14 +30,4 @@ jobs:
             - name: Output of GetChangeDetails
               run: echo "The Status of Update Change Request Details => ${{ steps.getWithBasicAuth.outputs.change-request-number }}"
               
-            - name: Get Change Custom Action With Invalid Token
-              uses: roy-ca/getChangeAction@main
-              id: getWithInvalidToken
-              with:
-                devops-integration-token: ${{ secrets.SN_DEVOPS_INTEGRATION_INVALID_TOKEN }}
-                instance-url: ${{ secrets.SN_INSTANCE_URL }}
-                tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
-                context-github: ${{ toJSON(github) }}
-                change-details: '{"pipeline_name":"roy-ca/ChangeActionRepo/Change Action","stage_name":"Build","build_number":"5037580150"}'
-            - name: Output of GetChangeDetails
-              run: echo "The Status of Update Change Request Details => ${{ steps.getWithInvalidToken.outputs.change-request-number }}"
+    
