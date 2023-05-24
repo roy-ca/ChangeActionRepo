@@ -5,23 +5,11 @@ jobs:
         name: Build
         runs-on: ubuntu-latest
         steps:
-            - name: Get Change Custom Action With Token
-              uses: roy-ca/getChangeAction@main
-              id: getWithToken
-              with:
-                instance-url: ${{ secrets.SN_INSTANCE_URL }}
-                tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
-                context-github: ${{ toJSON(github) }}
-                change-details: '{"pipeline_name":"roy-ca/ChangeActionRepo/Change Action","stage_name":"Build","build_number":"5037580150"}'
-            - name: Output of GetChangeDetails
-              run: echo "The Status of Update Change Request Details => ${{ steps.getWithToken.outputs.change-request-number }}"
-              
             - name: Get Change Custom Action With
               uses: roy-ca/getChangeAction@main
               id: getWithBasicAuth
               with:
                 devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
-                devops-integration-user-password: ${{ secrets.SN_DEVOPS_USER }}
                 instance-url: ${{ secrets.SN_INSTANCE_URL }}
                 tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
                 context-github: ${{ toJSON(github) }}
