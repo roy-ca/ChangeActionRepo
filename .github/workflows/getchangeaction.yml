@@ -9,7 +9,6 @@ jobs:
               uses: roy-ca/getChangeAction@main
               id: getWithToken
               with:
-                devops-integration-token: ${{ secrets.SN_DEVOPS_INTEGRATION_TOKEN }}
                 instance-url: ${{ secrets.SN_INSTANCE_URL }}
                 tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
                 context-github: ${{ toJSON(github) }}
