@@ -13,7 +13,7 @@ jobs:
                 tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
                 context-github: ${{ toJSON(github) }}
                 job-name: 'Register Artifact'
-                artifacts: '[{"name": "com:customactiondemoroyToken3.0","version": "1.${{ github.run_number }}","semanticVersion": "1.${{ github.run_number }}.0","repositoryName": "${{ github.repository }}"}]'
+                artifacts: '[{"name": "com:customactiondemoroyToken4.0","version": "1.${{ github.run_number }}","semanticVersion": "1.${{ github.run_number }}.0","repositoryName": "${{ github.repository }}"}]'
             - name: Register Artifact Custom Action Basic Auth
               uses: ServiceNow/servicenow-devops-register-artifact@scratch_STRY55387369
               with:
@@ -23,7 +23,7 @@ jobs:
                 tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
                 context-github: ${{ toJSON(github) }}
                 job-name: 'Register Artifact'
-                artifacts: '[{"name": "com:customactiondemoroyBasicAuth3.0","version": "1.${{ github.run_number }}","semanticVersion": "1.${{ github.run_number }}.0","repositoryName": "${{ github.repository }}"}]'
+                artifacts: '[{"name": "com:customactiondemoroyBasicAuth4.0","version": "1.${{ github.run_number }}","semanticVersion": "1.${{ github.run_number }}.0","repositoryName": "${{ github.repository }}"}]'
             - name: Register Artifact Custom Action Invalid Token
               uses: ServiceNow/servicenow-devops-register-artifact@scratch_STRY55387369
               with:
@@ -32,4 +32,4 @@ jobs:
                 tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
                 context-github: ${{ toJSON(github) }}
                 job-name: 'Register Artifact'
-                artifacts: '[{"name": "com:customactiondemoroyInvalidToken3.0","version": "1.${{ github.run_number }}","semanticVersion": "1.${{ github.run_number }}.0","repositoryName": "${{ github.repository }}"}]'
+                artifacts: '[{"name": "com:customactiondemoroyInvalidToken4.0","version": "1.${{ github.run_number }}","semanticVersion": "1.${{ github.run_number }}.0","repositoryName": "${{ github.repository }}"}]'
