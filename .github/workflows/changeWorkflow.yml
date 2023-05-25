@@ -8,6 +8,7 @@ jobs:
             - name: Change Custom Action
               uses: ServiceNow/servicenow-devops-change@scratch_STRY55387839
               with:
+                devops-integration-token: ${{ secrets.SN_DEVOPS_INTEGRATION_TOKEN }}
                 instance-url: ${{ secrets.SN_INSTANCE_URL }}
                 tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
                 context-github: ${{ toJSON(github) }}
