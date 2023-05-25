@@ -33,7 +33,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Servicenow Get Change Details
-        uses: ./
+        uses: roy-ca/getChangeAction@main
         id: get
         with:
           devops-integration-token: ${{ secrets.SN_DEVOPS_INTEGRATION_TOKEN }}
